@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const supabase = require('../config/supabase')
+const authenticateToken = require('../middleware/auth')
+
+router.use(authenticateToken)
 
 // GET all contacts
 router.get('/', async (req, res, next) => {
